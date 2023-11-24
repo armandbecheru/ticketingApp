@@ -45,7 +45,7 @@ public:
 		NO_LOCATIONS++;
 	}
 
-	~EventLocation() //destructor
+	~EventLocation() //destructor with the reduction of static variable
 	{
 		NO_LOCATIONS--;
 	}
@@ -151,6 +151,7 @@ public:
 		cout << " " << endl;
 	}
 
+	//method for displaying the number of locations
 	void displayNumberOfLocations()
 	{
 		cout << "Number of locations: " << NO_LOCATIONS << endl;
@@ -158,4 +159,5 @@ public:
 	}
 };
 
+//initializing the static variable
 int EventLocation::NO_LOCATIONS = 0;
