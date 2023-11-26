@@ -120,6 +120,41 @@ public:
 		this->city = city;
 	}
 
+	//overloading the operator <<
+	ostream& operator<< (ostream& dev, const EventLocation& E) {
+		os << "Location id: " << eventLocation.locationId << endl;
+		os << "Location name: " << eventLocation.locationName << endl;
+		os << "Capacity: " << eventLocation.capacity << endl;
+		os << "Total rows: " << eventLocation.totalRows << endl;
+		os << "Has VIP: " << eventLocation.hasVip << endl;
+		os << "Seat category: " << eventLocation.seatCategory << endl;
+		os << "Address: " << eventLocation.address << endl;
+		os << "City: " << eventLocation.city << endl;
+		os << " " << endl;
+		return os;
+	}
+
+	//overloading the operator >>
+	istream& operator>> (istream& dev, EventLocation& E)
+	{
+		cout << "Enter the location name: ";
+		dev >> E.locationName;
+		cout << "Enter the capacity: ";
+		dev >> E.capacity;
+		cout << "Enter the total rows: ";
+		dev >> E.totalRows;
+		cout << "Enter if the location has VIP: ";
+		dev >> E.hasVip;
+		cout << "Enter the seat category: ";
+		dev >> E.seatCategory;
+		cout << "Enter the address: ";
+		dev >> E.address;
+		cout << "Enter the city: ";
+		dev >> E.city;
+		cout << " " << endl;
+		return dev;
+	}
+
 	//method for validating the attributes of the event location
 	bool isValidLocation()
 	{

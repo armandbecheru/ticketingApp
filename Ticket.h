@@ -134,6 +134,39 @@ public:
 		this->clientEmail = clientEmail;
 	}
 
+	//overloading the operator >>
+	istream& operator>> (istream& dev, Ticket& E)
+	{
+		cout << "Ticket ID: ";
+		dev >> ticketId;
+		cout << "Seat Number: ";
+		dev >> seatNumber;
+		cout << "Seat Row: ";
+		dev >> seatRow;
+		cout << "Price: ";
+		dev >> price;
+		cout << "Section: ";
+		dev >> section;
+		cout << "Client Name: ";
+		dev >> clientName;
+		cout << "Client Email: ";
+		dev >> clientEmail;
+		return dev;
+	}
+
+	//overloading the operator <<
+	ostream& operator<< (ostream& dev, Ticket& E)
+	{
+		dev << "Ticket ID: " << ticketId << endl;
+		dev << "Seat Number: " << seatNumber << endl;
+		dev << "Seat Row: " << seatRow << endl;
+		dev << "Price: " << price << endl;
+		dev << "Section: " << section << endl;
+		dev << "Client Name: " << clientName << endl;
+		dev << "Client Email: " << clientEmail << endl;
+		return dev;
+	}
+
 	//method for displaying a ticket
 	void displayTicket()
 	{

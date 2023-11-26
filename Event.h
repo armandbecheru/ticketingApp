@@ -3,7 +3,6 @@
 #include<iostream>
 #include <string>
 
-#include "EventLocation.h"
 
 class Event
 {
@@ -45,7 +44,7 @@ public:
 		this->description = description;
 		this->price = price;
 		this->isFamilyFriendly = isFamilyFriendly;
-		NO_EVENTS++;
+		NO_EVENTS++; 
 	}
 	//destructor with the reduction of static variable
 	~Event()
@@ -118,7 +117,47 @@ public:
 	}
 	void setIsFamilyFriendly(bool isFamilyFriendly)
 	{
-		this->isFamilyFriendly = isFamilyFriendly;
+		this->isFamilyFriendly = isFamilyFriendly; 
+	}
+
+
+	//overloading the operator <<
+	ostream& operator<< (ostream& dev, const Event& E)
+	{
+		dev << "Event ID: " << E.eventId << endl;
+		dev << "Event name: " << E.name << endl;
+		dev << "Event year: " << E.year << endl;
+		dev << "Event month: " << E.month << endl;
+		dev << "Event day: " << E.day << endl;
+		dev << "Event description: " << E.description << endl;
+		dev << "Event price: " << E.price << endl;
+		dev << "Event is family friendly: " << E.isFamilyFriendly << endl;
+		dev << " " << endl;
+		return dev;
+	}
+
+//overloading the operator >>
+
+istream& operator>> (istream& dev, Event& E)
+	{
+		cout << "Enter event ID: ";
+		dev >> E.eventId;
+		cout << "Enter event name: ";
+		dev >> E.name;
+		cout << "Enter event year: ";
+		dev >> E.year;
+		cout << "Enter event month: ";
+		dev >> E.month;
+		cout << "Enter event day: ";
+		dev >> E.day;
+		cout << "Enter event description: ";
+		dev >> E.description;
+		cout << "Enter event price: ";
+		dev >> E.price;
+		cout << "Enter if event is family friendly: ";
+		dev >> E.isFamilyFriendly;
+		cout << " " << endl;
+		return dev;
 	}
 
 	//method for validating an event
